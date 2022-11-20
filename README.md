@@ -79,8 +79,8 @@ Map chart to display the Earthquake data, using Leaflet, that plots all the eart
 <br>
 The visualisation includes:
 <ul> 
-    <li>Add data markers which should reflect the magnitude of the earthquake by their size and the depth of the earthquake by colour. Earthquakes with higher magnitudes appear larger, and earthquakes with greater depth appear darker in colour.</li>
-    <li>Include popups that provide additional information about the earthquake when its associated marker is clicked.</li>
+    <li>Data markers which reflect the magnitude of the earthquake by their size and the depth of the earthquake by colour. Earthquakes with higher magnitudes appear larger, and earthquakes with greater depth appear darker in colour.</li>
+    <li>Popups that provide additional information about the earthquake when its associated marker is clicked.</li>
 </ul>
 <br>
 <img src="Images/leaflet_final_map.png" alt="map" width="1000" height="400">
