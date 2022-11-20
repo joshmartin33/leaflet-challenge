@@ -1,26 +1,26 @@
+
+// variable to hold the url to the json dataset
 let url = ("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson");
 
-
+// Get the data with d3.
 d3.json(url).then(function(data) {
-    // colorLegend(data.bbox);
-    // createFeatures(data.features);
     createMap(data.features);
   });
 
-
+// Function to add a map based on earthquake data input
 function createMap(earthquakes) {
 
 
 // Create a map object.
-let myMap = L.map("map-id", {
-    center: [-22.839076, 91.593792],
-    zoom: 3
-  });
+    let myMap = L.map("map-id", {
+        center: [-22.839076, 91.593792],
+        zoom: 3
+    });
   
-  // Add a tile layer.
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    // Add a tile layer.
+     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(myMap);
+    }).addTo(myMap);
 
     // Loop through the cities array, and create one marker for each city object.
     for (let i = 0; i < earthquakes.length; i++) {
@@ -33,9 +33,11 @@ let myMap = L.map("map-id", {
           weight: 2,
           color: "white",
           fillColor: getColor(earthquakes[i].geometry.coordinates[2]),
+
           // Adjust the radius.
-            //   radius: Math.sqrt(countries[i].gdp_pc) * 500
             radius: earthquakes[i].properties.mag * 50000
+
+        // add text to be attached as a popup to each circle
         }).bindPopup(`<h2><strong>Earthquake event</strong></h2><hr>
         <p><strong>Location:</strong> ${earthquakes[i].properties.place}</p>
         <p><strong>Magnitude:</strong>${earthquakes[i].properties.mag} </p>
@@ -45,7 +47,7 @@ let myMap = L.map("map-id", {
                  
                       
 
-
+        // Adding legend to the map
         var legend = L.control({position: 'bottomright'});
 
         legend.onAdd = function (map) {
@@ -66,6 +68,7 @@ let myMap = L.map("map-id", {
         
         legend.addTo(myMap);
 
+        // function to select the colour of the circle based on the value of the input
         function getColor(d) {
             return d > 90 ? '#006837' :
                    d > 70  ? '#31a354' :
