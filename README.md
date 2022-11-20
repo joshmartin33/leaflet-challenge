@@ -83,7 +83,7 @@ The visualisation includes:
     <li>Popups that provide additional information about the earthquake when its associated marker is clicked.</li>
 </ul>
 <br>
-<img src="Images/leaflet_final_map.png" alt="map" width="1000" height="400">
+<img src="Images/leaflet_final_map2.png" alt="map" width="1000" height="400">
 <br>
 
 
